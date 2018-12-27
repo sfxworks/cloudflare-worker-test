@@ -26,7 +26,9 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: npm install
+      - run:
+          name: Install node_modules
+          command: npm install
 
       - save_cache:
           paths:
@@ -34,8 +36,11 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # Build
-      - run: npm run build
+      - run:
+          name: Build Webpack
+          command: npm run build
       
       # Send to CloudFlare
-      - run: curl -X PUT "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/workers/script" -H "X-Auth-Email:$CLOUDFLARE_EMAIL" -H "X-Auth-Key:$CLOUDFLARE_AUTH_KEY" -H "Content-Type:application/javascript" --data-binary "@./dist/main.js"
-
+      - run:
+          name: Update Cloudflare Worker
+          command: curl -X PUT "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/workers/script" -H "X-Auth-Email:$CLOUDFLARE_EMAIL" -H "X-Auth-Key:$CLOUDFLARE_AUTH_KEY" -H "Content-Type:application/javascript" --data-binary "@./dist/main.js"

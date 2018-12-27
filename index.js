@@ -5,5 +5,5 @@ addEventListener('fetch', event => {
 const _ = require("lodash")
 
 async function sendDate(request) {
-  return new Response(`${_.now()}`)
+  return new Response(`${_.now()} Also hello`)
 }
