@@ -1,0 +1,30 @@
+{
+  "name": "cloudflare-worker-test",
+  "version": "1.0.0",
+  "description": "Cloudflare worker test + CircleCI integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sfxworks/cloudflare-worker-test.git"
+  },
+  "keywords": [
+    "cloudflare",
+    "circleci"
+  ],
+  "author": "Samuel Wa",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/sfxworks/cloudflare-worker-test/issues"
+  },
+  "homepage": "https://github.com/sfxworks/cloudflare-worker-test#readme",
+  "dependencies": {
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "webpack": "^4.28.2"
+  }
+}
